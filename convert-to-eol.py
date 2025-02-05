@@ -3,16 +3,10 @@ import argparse
 from string import Template
 import base64
 
-#TODO: On overleaf, change 4choices(on hassan.tex), 
-# and change tabular l pads.
 
 TEMPLATE_FILE = 'exam_xml.template'
 TEX_SYNTAXES = [r"texttt", "tabular", "CodeSnippet", "begin{choices}",
                 r"enspace", r'\^ ', r'\\', r"\&", r'\%', r'\#', r'\}', r'\}']
-IMG_KEYS = {
-        "gpio"
-        }
-
 KEY_DICT = {
         "MAIN": r"question\}\{(.*?)\}(.*?)\\begin\{choices\}",
         "FIG": r"\\AMClabel\{fig:(.*?)\}",
@@ -26,8 +20,6 @@ KEY_DICT = {
         "FIGHTML": '<img src="@@PLUGINFILE@@/{}" alt="" role="presentation" class="img-responsive atto_image_button_text-bottom" width="80%"><br>',
         "FIGBASE64": '<file name="{}" path="/" encoding="base64">{}</file>',
         }
-
-# TODO: diff types of tabular
 
 START_REPLACE_COMMON = {
         r"\textdegree": "°",
@@ -124,8 +116,6 @@ def code2xml(code):
             xml_line = ''.join(xml_line[1].rsplit("}", 1))
             xml_code.append(xml_line)
     return KEY_DICT["DIV"] + '\n'.join(xml_code) + " </div>"
-    # # code = '\n'.join([re.sub(KEY_DICT["TEXTTT"], r"\1", line) for line in code.splitlines()])
-    # return KEY_DICT["DIV"] + code + " </div>"
 
 def choice2xml(question):
     choices = re.search(KEY_DICT["CHOICES"], question, re.DOTALL).group(1).split(r"choice{")
