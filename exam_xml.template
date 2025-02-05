@@ -1,0 +1,57 @@
+
+<question type="category">
+   <category>
+       <text>$course$/top/{examtitle}/{partname}</text>
+   </category>
+</question>
+
+<question type="multichoice">
+
+   <name>
+       <text>{questionname}</text>
+   </name>
+
+   <questiontext format="html">
+       <text>
+           <![CDATA[{mainquestion}]]>
+       </text>
+       {figfile}
+   </questiontext>
+
+   <answer fraction="{first_point}" format="html">
+       <text><![CDATA[{first_choice}]]></text>
+      <feedback><text></text></feedback>
+   </answer>
+   <answer fraction="{second_point}" format="html">
+       <text><![CDATA[{second_choice}]]></text>
+      <feedback><text></text></feedback>
+   </answer>
+   <answer fraction="{third_point}" format="html">
+       <text><![CDATA[{third_choice}]]></text>
+      <feedback><text></text></feedback>
+   </answer>
+   <answer fraction="{forth_point}" format="html">
+       <text><![CDATA[{forth_choice}]]></text>
+      <feedback><text></text></feedback>
+   </answer>
+   <answer fraction="{fifth_point}" format="html">
+       <text><![CDATA[{fifth_choice}]]></text>
+      <feedback><text></text></feedback>
+   </answer>
+   <answer fraction="0" format="html">
+      <text><![CDATA[I don't have an answer for the question (no penalty will be applied for this choice)]]></text>
+      <feedback><text></text></feedback>
+   </answer>
+
+   <defaultgrade>2.75</defaultgrade>
+   <penalty>-0.2</penalty>
+   <hidden>0</hidden>
+   <single>true</single>
+   <shuffleanswers>1</shuffleanswers>
+
+   <generalfeedback format="html"><text></text></generalfeedback>
+   <correctfeedback format="html"><text></text></correctfeedback>
+   <partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>
+   <incorrectfeedback format="html"><text></text></incorrectfeedback>
+   <answernumbering>none</answernumbering>
+</question>
